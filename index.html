@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小欧</title>
+  <meta name="description" content="小欧的个人介绍">
+  <style>
+    :root {
+      --paper: #f3f0e8;
+      --ink: #1a1814;
+      --muted: #6f6860;
+      --line: #ddd6c8;
+      --link: #8f3d24;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--paper); color: var(--ink); }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    main {
+      width: min(36rem, calc(100% - 3rem));
+      margin: 0 auto;
+      padding: 18vh 0 14vh;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Palatino, "Palatino Linotype", "Songti SC", "STSong", "SimSun", serif;
+      font-size: clamp(3.4rem, 9vw, 5.75rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+    }
+
+    .role {
+      margin: 1.4rem 0 0;
+      color: var(--muted);
+    }
+
+    .now {
+      max-width: 28em;
+      margin: 1.75rem 0 0;
+    }
+
+    section { margin-top: 4.75rem; }
+
+    h2 {
+      margin: 0 0 0.4rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 650;
+      letter-spacing: 0.18em;
+    }
+
+    a {
+      color: var(--link);
+      text-underline-offset: 0.2em;
+    }
+
+    a:hover { color: var(--ink); }
+
+    footer {
+      margin-top: 5.5rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 640px) {
+      main {
+        width: min(36rem, calc(100% - 2.25rem));
+        padding-top: 12vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>小欧</h1>
+      <!-- 换成你希望别人记住的角色，一行。例如：产品设计师 -->
+      <p class="role">个人介绍</p>
+      <!-- 换成「现在」：你在做什么、想被怎样找到。两行以内。 -->
+      <p class="now">这是我的个人介绍。作品和邮箱整理好之后，会放在这页。</p>
+    </header>
+
+    <!--
+      有真实链接的代表作再打开，最多三件。没有链接就不要放。
+      <section>
+        <h2>作品</h2>
+        <p><a href="https://example.com">项目名</a> — 一句话结果。</p>
+      </section>
+    -->
+
+    <section>
+      <h2>联系</h2>
+      <!-- 有常用邮箱后，改成 <a href="mailto:you@example.com">you@example.com</a> -->
+      <p><a href="https://github.com/OU1005465816">GitHub</a></p>
+    </section>
+
+    <footer>ou1005465816.github.io</footer>
+  </main>
+</body>
+</html>
