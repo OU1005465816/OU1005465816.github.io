@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>小欧</title>
-  <meta name="description" content="小欧的个人介绍">
+  <title>欧士博 · 图像算法工程师</title>
+  <meta name="description" content="欧士博，图像算法工程师。6 年图像算法经验，近 3 年做跨境电商 AI 图像生成。">
   <style>
     :root {
       --paper: #f3f0e8;
@@ -20,90 +20,271 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
       font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      font-size: 17px;
-      line-height: 1.75;
+      font-size: 16px;
+      line-height: 1.7;
     }
 
     main {
-      width: min(36rem, calc(100% - 3rem));
+      width: min(40rem, calc(100% - 2.5rem));
       margin: 0 auto;
-      padding: 18vh 0 14vh;
+      padding: 14vh 0 10vh;
     }
 
     h1 {
       margin: 0;
       font-family: Palatino, "Palatino Linotype", "Songti SC", "STSong", "SimSun", serif;
-      font-size: clamp(3.4rem, 9vw, 5.75rem);
+      font-size: clamp(3.2rem, 8vw, 5.2rem);
       font-weight: 500;
       letter-spacing: -0.03em;
       line-height: 0.95;
     }
 
     .role {
-      margin: 1.4rem 0 0;
+      margin: 1.15rem 0 0;
       color: var(--muted);
     }
 
     .now {
-      max-width: 28em;
-      margin: 1.75rem 0 0;
+      max-width: 36em;
+      margin: 1.4rem 0 0;
     }
 
-    section { margin-top: 4.75rem; }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1.25rem;
+      margin: 1.5rem 0 0;
+    }
+
+    .contact a { color: var(--link); text-underline-offset: 0.18em; }
+    .contact a:hover { color: var(--ink); }
+
+    section { margin-top: 3.25rem; }
 
     h2 {
-      margin: 0 0 0.4rem;
+      margin: 0 0 0.85rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.72rem;
       font-weight: 650;
       letter-spacing: 0.18em;
     }
 
-    a {
-      color: var(--link);
-      text-underline-offset: 0.2em;
+    article { padding: 1rem 0 0.15rem; }
+    article + article { border-top: 1px solid var(--line); margin-top: 0.85rem; }
+
+    h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 650;
+      line-height: 1.45;
     }
 
-    a:hover { color: var(--ink); }
+    .meta {
+      margin: 0.15rem 0 0.45rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    ul { margin: 0.35rem 0 0; padding-left: 1.15rem; }
+    li { margin: 0.28rem 0; }
+    p { margin: 0.4rem 0; }
+
+    .group { margin-top: 1rem; }
+    .group strong { display: block; margin-bottom: 0.15rem; }
 
     footer {
-      margin-top: 5.5rem;
+      margin-top: 4rem;
       color: var(--muted);
       font-size: 0.92rem;
     }
 
     @media (max-width: 640px) {
-      main {
-        width: min(36rem, calc(100% - 2.25rem));
-        padding-top: 12vh;
-      }
+      main { padding-top: 10vh; }
     }
   </style>
 </head>
 <body>
   <main>
     <header>
-      <h1>小欧</h1>
-      <!-- 换成你希望别人记住的角色，一行。例如：产品设计师 -->
-      <p class="role">个人介绍</p>
-      <!-- 换成「现在」：你在做什么、想被怎样找到。两行以内。 -->
-      <p class="now">这是我的个人介绍。作品和邮箱整理好之后，会放在这页。</p>
+      <h1>欧士博</h1>
+      <p class="role">图像算法工程师 · 6 年经验</p>
+      <p class="now">近 3 年做跨境电商 AI 图像生成，熟悉家具和亚马逊营销素材。能独立把生图平台从 0 搭到 1，也能把模型微调和后端服务一起落地。做过的素材可用率在 70%–100%，商品曝光提升 55% 以上。</p>
+      <p class="contact">
+        <a href="mailto:1005465816@qq.com">1005465816@qq.com</a>
+        <a href="tel:13077886884">13077886884</a>
+        <a href="https://github.com/OU1005465816">GitHub</a>
+      </p>
     </header>
 
-    <!--
-      有真实链接的代表作再打开，最多三件。没有链接就不要放。
-      <section>
-        <h2>作品</h2>
-        <p><a href="https://example.com">项目名</a> — 一句话结果。</p>
-      </section>
-    -->
+    <section>
+      <h2>教育</h2>
+      <article>
+        <h3>哈尔滨华德学院 · 电子信息工程 · 本科</h3>
+        <p class="meta">2015.9 – 2019.7</p>
+        <p>三维 CAD 应用工程师证书。</p>
+      </article>
+    </section>
 
     <section>
-      <h2>联系</h2>
-      <!-- 有常用邮箱后，改成 <a href="mailto:you@example.com">you@example.com</a> -->
-      <p><a href="https://github.com/OU1005465816">GitHub</a></p>
+      <h2>工作</h2>
+      <article>
+        <h3>图像算法工程师 · 傲基（深圳）跨境商务股份有限公司</h3>
+        <p class="meta">2025.12 – 2026.6</p>
+        <ul>
+          <li>负责 AI 家具系列化图像生成平台的算法和工程化，支撑跨境电商家具品类的营销图生产。</li>
+          <li>主导 Flux 系列模型 LoRA 微调、ControlNet 控图和多模型 fallback 调度。日均千级任务稳定调度，接口平均响应小于 3 秒。</li>
+        </ul>
+      </article>
+      <article>
+        <h3>图像算法工程师 · 深圳智汇创想网络科技有限公司</h3>
+        <p class="meta">2023.6 – 2025.12</p>
+        <ul>
+          <li>负责亚马逊 A+ 合成图、POST 图片和文案生成、Stable Diffusion 人工合成图，以及商品图字符检测和 OCR。</li>
+          <li>独立完成产品图前置处理、场景图生成，以及多尺寸图、细节图、尺寸图的自动化流水线。素材可用率 70%–100%，产品曝光度提升 55%–60%。</li>
+        </ul>
+      </article>
+      <article>
+        <h3>图像算法工程师 · 中软国际科技服务有限公司</h3>
+        <p class="meta">2021.4 – 2023.5</p>
+        <ul>
+          <li>参与华为 MindSpore 框架生态建设，负责算子验收、官方网络复现、性能基线测试和技术文档。</li>
+          <li>基于 YOLOv3 / YOLOv5 完成目标检测的数据集构建、训练和部署，用于图表组件识别和物种识别。</li>
+        </ul>
+      </article>
+      <article>
+        <h3>图像算法工程师 · 深圳市优讯信息科技有限公司</h3>
+        <p class="meta">2019.4 – 2021.4</p>
+        <ul>
+          <li>负责红外热成像相关 AI 项目，完成热力图数据处理、CNN / 3D-CNN 网络搭建和模型训练。</li>
+          <li>参与人脸机户外防高温干扰和人体姿态识别，模型准确率分别达到 94.56% 和 98.21%。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>项目</h2>
+      <article>
+        <h3>AI 家具系列化图像生成平台</h3>
+        <p class="meta">2025.12 – 2026.6 · 傲基（深圳）跨境商务股份有限公司</p>
+        <p>面向家具电商和智能设计，从零搭建基于 FastAPI 的高并发生图服务，落地系列白底图、场景营销拼图、智能拆图和多轮编辑。</p>
+        <ul>
+          <li>用 FastAPI 做双链路异步调度，ThreadPoolExecutor 做品类和图片的二级并发；用 Redis 状态机和 TaskToken 管任务生命周期，支撑日均千级批量出图。</li>
+          <li>用 LangChain 把风格、材质、配色、品类收成结构化参数，把自然语言需求转成生图输入。</li>
+          <li>统一封装 Gemini、Qwen-Image、GPT-Image-2、Flux+LoRA，做模型路由和故障降级，覆盖文生图、图生图和 ControlNet。</li>
+          <li>用视觉模型和 Pillow 做场景图识别、裁剪补边和白底重绘，并支持多轮需求澄清。</li>
+          <li>用向量库做家具知识检索，保证系列图在风格、材质和光影上一致。</li>
+        </ul>
+        <p>系列单品图风格一致率大于 85%，场景图一次可用率大于 90%，拆图成功率大于 85%。接口平均响应小于 3 秒，端到端生图 30 秒到 2 分钟。</p>
+      </article>
+      <article>
+        <h3>亚马逊 A+ 合成图</h3>
+        <p class="meta">2025.6 – 2025.12 · 深圳智汇创想网络科技有限公司</p>
+        <p>为亚马逊 A+ 生产品牌图、主卖点图、使用场景图和功能说明图。</p>
+        <ul>
+          <li>基于 Flux 和自训练 LoRA，结合 Canny 控图，生成 7 种标准尺寸的产品场景图。</li>
+          <li>做白底图分割、放缩、位置调整和 mask，再用 Pillow 完成图标、标题、尺寸箭头和细节放大镜的自动排版。</li>
+          <li>调用文案模型生成主副标题和卖点，套进 A+ 模板。</li>
+        </ul>
+        <p>摆件类场景图可用率 70%，尺寸图 81%，细节图 65%。主副标题可用率 92.5%，文案可用率 100%，文本要点可用率 85%。</p>
+      </article>
+      <article>
+        <h3>亚马逊 POST 图片与文案</h3>
+        <p class="meta">2024.12 – 2025.6 · 深圳智汇创想网络科技有限公司</p>
+        <ul>
+          <li>部署 Qwen2-VL-7B，从产品信息生成场景词和 POST 文案，并做字符限制、侵权词替换和语种统一。</li>
+          <li>产品图分割后，用 Flux+LoRA 和 Canny 生成 POST 图片。</li>
+        </ul>
+        <p>场景词可用率 96% 以上，文案接近 100%，图片 85% 以上。文案和图片带来的曝光分别提升 60% 和 55% 以上。</p>
+      </article>
+      <article>
+        <h3>基于 Stable Diffusion 的人工合成图</h3>
+        <p class="meta">2023.6 – 2025.10 · 深圳智汇创想网络科技有限公司</p>
+        <p>自动合成产品场景图，避免图片重复被合并，提高自动刊登成功率。</p>
+        <ul>
+          <li>用 Flux 生成家具、城市、节日、户外等背景，供美工筛选。</li>
+          <li>用 BiRefNet 做产品分割，按大小、位置和旋转生成 mask。</li>
+          <li>用 SDXL 和 ControlNet（Canny）控布局，图生图得到最终场景图。</li>
+        </ul>
+        <p>衍生场景图保持在 10 万张以上，人工合成页的图片可用率大于 70%。</p>
+      </article>
+      <article>
+        <h3>商品图字符检测与侵权筛查</h3>
+        <p class="meta">2024.3 – 2024.6 · 深圳智汇创想网络科技有限公司</p>
+        <p>从 MongoDB 读取待检商品图，用 OCR 检出文字后做侵权筛查，再把结果写回。</p>
+        <ul>
+          <li>基于 PaddleOCR 做检测和识别，回写文字、框、置信度和风险标签。</li>
+          <li>做文本去重，并封装异步服务支撑批量处理。</li>
+        </ul>
+        <p>字符检测和识别准确率 85% 以上，日均处理 1000 张以上。</p>
+      </article>
+      <article>
+        <h3>基于 YOLOv5 的图表组件识别</h3>
+        <p class="meta">2022.7 – 2023.3 · 中软国际科技服务有限公司</p>
+        <p>为 TEST-AI D2C 平台提供图表组件的线上预测。在 ModelArts 上训练并部署 YOLOv5。</p>
+        <p>验证集 box loss 降到 0.005 以下，精度、召回率和准确率接近 1。整理新旧组件混合数据集 9364 张。</p>
+      </article>
+      <article>
+        <h3>基于 YOLOv3 的物种识别</h3>
+        <p class="meta">2022.1 – 2022.6 · 中软国际科技服务有限公司</p>
+        <p>在 MindSpore 上完成 YOLOv3 的训练和推理。用 Docker 搭建 MindSpore-GPU 环境，完成标注、训练和推理说明。</p>
+        <p>输出环境搭建文档，以及数据集转 COCO 格式的技术文档。</p>
+      </article>
+      <article>
+        <h3>MindSpore 委托开发</h3>
+        <p class="meta">2021.4 – 2022.1 · 中软国际科技服务有限公司</p>
+        <p>参与华为 MindSpore 生态建设：算子验收、官方网络复现、配置与 hub 权重适配、README 修正，以及和 PyTorch 的性能基线对比。</p>
+        <p>验收十余个动态 shape 算子和五个 AICPU 算子，完成 official 目录网络复现，适配近 200 个配置文件。</p>
+      </article>
+      <article>
+        <h3>人脸机户外防高温干扰</h3>
+        <p class="meta">2020.4 – 2021.4 · 深圳市优讯信息科技有限公司</p>
+        <p>用于商场、小区和工厂的户外测温。通过串口采集红外传感器的 1024 维温度，生成 32×32 热力图，搭建分割网络。</p>
+        <p>测试集准确率 94.56%，用于上班打卡场景。</p>
+      </article>
+      <article>
+        <h3>基于红外传感器的人体姿态识别</h3>
+        <p class="meta">2019.4 – 2020.3 · 深圳市优讯信息科技有限公司</p>
+        <p>在保护隐私的前提下识别人体姿态，用于智能家电控制。用摄像头和红外传感器同步采集，以人体关键点置信图为标签，搭建 3D-CNN。</p>
+        <p>测试集准确率 98.21%。</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>技能</h2>
+      <div class="group">
+        <strong>AI 图像生成与合成、图生视频</strong>
+        <ul>
+          <li>熟悉 Stable Diffusion，能用 ComfyUI 搭生图工作流。</li>
+          <li>做过 Flux.1 / Flux.2 的 LoRA 微调和风格迁移，能独立完成数据、训练和推理部署。</li>
+          <li>用过 ControlNet（Canny）、BiRefNet、Pillow、OpenCV，做分割、融合、拆图、重绘和裁切。</li>
+          <li>用 ComfyUI 搭过 LTX-Video，把商品静图转成宣传短视频。</li>
+        </ul>
+      </div>
+      <div class="group">
+        <strong>多模态与大模型应用</strong>
+        <ul>
+          <li>用过 GPT-5.5 Vision、Qwen 等视觉语言模型，做图像理解、意图识别和文案生成。</li>
+          <li>用 LangChain、LangGraph 做智能体，能编排 LLM、函数调用和自定义工具；做过 RAG 问答。</li>
+        </ul>
+      </div>
+      <div class="group">
+        <strong>深度学习与计算机视觉</strong>
+        <ul>
+          <li>用过 TensorFlow、PyTorch、MindSpore。</li>
+          <li>做过 YOLOv3 / YOLOv5 的数据构建、增强、训练和调优。</li>
+          <li>用 PaddleOCR 做过文字检测和识别。</li>
+        </ul>
+      </div>
+      <div class="group">
+        <strong>工程</strong>
+        <ul>
+          <li>Python，FastAPI 高并发服务，Redis 和线程池做异步任务。</li>
+          <li>Linux、Docker、Git，了解 MySQL。</li>
+        </ul>
+      </div>
     </section>
 
     <footer>ou1005465816.github.io</footer>
