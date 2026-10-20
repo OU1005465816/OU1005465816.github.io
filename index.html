@@ -16,7 +16,7 @@
 
     * { box-sizing: border-box; }
 
-    html { background: var(--paper); color: var(--ink); }
+    html { background: var(--paper); color: var(--ink); scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -25,10 +25,51 @@
       line-height: 1.7;
     }
 
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100vh;
+      height: 100dvh;
+      gap: 6px;
+      margin: 0;
+      background: var(--paper);
+    }
+
+    .shot {
+      position: relative;
+      display: block;
+      min-height: 0;
+      overflow: hidden;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .shot span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 2.2rem 0.95rem 0.75rem;
+      background: linear-gradient(transparent, rgba(20, 16, 12, 0.72));
+      font-size: 0.95rem;
+    }
+
+    .shot:hover span,
+    .shot:focus-visible span { text-decoration: underline; text-underline-offset: 0.18em; }
+
+    .shot:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+
     main {
       width: min(40rem, calc(100% - 2.5rem));
       margin: 0 auto;
-      padding: 14vh 0 10vh;
+      padding: 4.5rem 0 10vh;
     }
 
     h1 {
@@ -101,12 +142,44 @@
       font-size: 0.92rem;
     }
 
+    #a-plus { scroll-margin-top: 1rem; }
+
     @media (max-width: 640px) {
-      main { padding-top: 10vh; }
+      .gallery {
+        height: auto;
+        grid-template-columns: 1fr;
+      }
+
+      .shot img { height: 78vw; }
+
+      .shot.lead img {
+        height: 100vh;
+        height: 100dvh;
+      }
+
+      main { padding-top: 3rem; }
     }
   </style>
 </head>
 <body>
+  <section class="gallery" aria-label="亚马逊 A+ 合成图">
+    <a class="shot lead" href="#a-plus">
+      <img src="assets/a-plus/mantel.jpg" alt="壁炉台上的圣诞老人摆件，画面带英文标题">
+      <span>亚马逊 A+ 合成图</span>
+    </a>
+    <a class="shot" href="#a-plus">
+      <img src="assets/a-plus/tree.jpg" alt="圣诞树前木桌上的圣诞老人摆件">
+      <span>亚马逊 A+ 合成图</span>
+    </a>
+    <a class="shot" href="#a-plus">
+      <img src="assets/a-plus/garden.jpg" alt="花园回廊前的圣诞老人摆件">
+      <span>亚马逊 A+ 合成图</span>
+    </a>
+    <a class="shot" href="#a-plus">
+      <img src="assets/a-plus/dining.jpg" alt="餐厅长桌上的圣诞老人摆件">
+      <span>亚马逊 A+ 合成图</span>
+    </a>
+  </section>
   <main>
     <header>
       <h1>欧士博</h1>
@@ -179,7 +252,7 @@
         </ul>
         <p>系列单品图风格一致率大于 85%，场景图一次可用率大于 90%，拆图成功率大于 85%。接口平均响应小于 3 秒，端到端生图 30 秒到 2 分钟。</p>
       </article>
-      <article>
+      <article id="a-plus">
         <h3>亚马逊 A+ 合成图</h3>
         <p class="meta">2025.6 – 2025.12 · 深圳智汇创想网络科技有限公司</p>
         <p>为亚马逊 A+ 生产品牌图、主卖点图、使用场景图和功能说明图。</p>
