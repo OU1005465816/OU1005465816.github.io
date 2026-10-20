@@ -38,8 +38,15 @@
 
     .shot {
       display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      text-align: left;
       color: var(--link);
-      text-decoration: none;
+      cursor: pointer;
     }
 
     .shot[hidden] { display: none; }
@@ -161,6 +168,31 @@
 
     #a-plus { scroll-margin-top: 1rem; }
 
+    dialog {
+      width: min(40rem, calc(100% - 2rem));
+      max-height: min(80vh, 42rem);
+      margin: auto;
+      padding: 1.4rem 1.35rem 1.5rem;
+      border: 0;
+      background: var(--paper);
+      color: var(--ink);
+      overflow: auto;
+    }
+
+    dialog::backdrop { background: rgba(26, 24, 20, 0.55); }
+
+    .dialog-close {
+      display: block;
+      margin-left: auto;
+      margin-bottom: 0.4rem;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
     @media (max-width: 640px) {
       main { padding-top: 3rem; }
     }
@@ -170,22 +202,22 @@
   <section class="gallery" aria-label="作品图片">
     <div class="grid">
       <!-- 每 4 张为一页。第 5 张起自动进入下一页。 -->
-      <a class="shot" href="#a-plus">
+      <button type="button" class="shot" data-project="a-plus">
         <img src="assets/a-plus/mantel.jpg" alt="壁炉台上的圣诞老人摆件，画面带英文标题">
         <span>亚马逊 A+ 合成图</span>
-      </a>
-      <a class="shot" href="#a-plus">
+      </button>
+      <button type="button" class="shot" data-project="a-plus">
         <img src="assets/a-plus/tree.jpg" alt="圣诞树前木桌上的圣诞老人摆件">
         <span>亚马逊 A+ 合成图</span>
-      </a>
-      <a class="shot" href="#a-plus">
+      </button>
+      <button type="button" class="shot" data-project="a-plus">
         <img src="assets/a-plus/garden.jpg" alt="花园回廊前的圣诞老人摆件">
         <span>亚马逊 A+ 合成图</span>
-      </a>
-      <a class="shot" href="#a-plus">
+      </button>
+      <button type="button" class="shot" data-project="a-plus">
         <img src="assets/a-plus/dining.jpg" alt="餐厅长桌上的圣诞老人摆件">
         <span>亚马逊 A+ 合成图</span>
-      </a>
+      </button>
     </div>
     <div class="pager">
       <button type="button" id="gallery-prev">上一页</button>
@@ -375,6 +407,10 @@
 
     <footer>ou1005465816.github.io</footer>
   </main>
+  <dialog id="project-dialog">
+    <button type="button" class="dialog-close" id="project-close">关闭</button>
+    <div id="project-body"></div>
+  </dialog>
   <script>
     (function () {
       var shots = Array.prototype.slice.call(document.querySelectorAll(".gallery .shot"));
@@ -407,6 +443,25 @@
         }
       });
       show();
+
+      var dialog = document.getElementById("project-dialog");
+      var projectBody = document.getElementById("project-body");
+      document.querySelector(".gallery").addEventListener("click", function (event) {
+        var shot = event.target.closest(".shot");
+        if (!shot) return;
+        var source = document.getElementById(shot.getAttribute("data-project"));
+        if (!source) return;
+        var copy = source.cloneNode(true);
+        copy.removeAttribute("id");
+        projectBody.replaceChildren(copy);
+        dialog.showModal();
+      });
+      document.getElementById("project-close").addEventListener("click", function () {
+        dialog.close();
+      });
+      dialog.addEventListener("click", function (event) {
+        if (event.target === dialog) dialog.close();
+      });
     })();
   </script>
 </body>
