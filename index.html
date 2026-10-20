@@ -168,33 +168,68 @@
 
     #a-plus { scroll-margin-top: 1rem; }
 
-    dialog {
-      width: min(40rem, calc(100% - 2rem));
-      max-height: min(80vh, 42rem);
-      margin: auto;
-      padding: 1.4rem 1.35rem 1.5rem;
+    dialog:modal {
+      width: 100vw;
+      height: 100dvh;
+      max-width: none;
+      max-height: none;
+      margin: 0;
+      padding: 0;
       border: 0;
       background: var(--paper);
       color: var(--ink);
       overflow: auto;
     }
 
-    dialog::backdrop { background: rgba(26, 24, 20, 0.55); }
+    dialog::backdrop { background: var(--paper); }
 
     .dialog-close {
-      display: block;
-      margin-left: auto;
-      margin-bottom: 0.4rem;
-      padding: 0;
+      position: fixed;
+      top: 1.15rem;
+      right: 1.35rem;
+      z-index: 1;
+      padding: 0.2rem 0;
       border: 0;
       background: transparent;
       font: inherit;
+      letter-spacing: 0.14em;
       color: var(--muted);
       cursor: pointer;
     }
 
+    .dialog-close:hover { color: var(--ink); }
+
+    #project-body {
+      width: min(36rem, calc(100% - 3rem));
+      margin: 0 auto;
+      padding: 18vh 0 14vh;
+    }
+
+    #project-body article {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    #project-body h3 {
+      font-family: Palatino, "Palatino Linotype", "Songti SC", "STSong", "SimSun", serif;
+      font-size: clamp(2.4rem, 6vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    #project-body .meta { margin-top: 1rem; }
+
+    #project-body p { max-width: 34em; margin-top: 1.35rem; font-size: 1.05rem; }
+
+    #project-body ul { margin-top: 1.15rem; }
+
+    #project-body li { margin: 0.45rem 0; font-size: 1.02rem; }
+
     @media (max-width: 640px) {
       main { padding-top: 3rem; }
+      #project-body { padding-top: 12vh; }
     }
   </style>
 </head>
@@ -408,7 +443,7 @@
     <footer>ou1005465816.github.io</footer>
   </main>
   <dialog id="project-dialog">
-    <button type="button" class="dialog-close" id="project-close">关闭</button>
+    <button type="button" class="dialog-close" id="project-close">返回</button>
     <div id="project-body"></div>
   </dialog>
   <script>
@@ -458,9 +493,6 @@
       });
       document.getElementById("project-close").addEventListener("click", function () {
         dialog.close();
-      });
-      dialog.addEventListener("click", function (event) {
-        if (event.target === dialog) dialog.close();
       });
     })();
   </script>
