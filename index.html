@@ -26,45 +26,62 @@
     }
 
     .gallery {
+      width: min(52rem, calc(100% - 2rem));
+      margin: 1.25rem auto 0;
+    }
+
+    .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      height: 100vh;
-      height: 100dvh;
-      gap: 6px;
-      margin: 0;
-      background: var(--paper);
+      gap: 1rem 0.9rem;
     }
 
     .shot {
-      position: relative;
       display: block;
-      min-height: 0;
-      overflow: hidden;
-      color: #fff;
+      color: var(--link);
       text-decoration: none;
     }
 
+    .shot[hidden] { display: none; }
+
     .shot img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
+      background: #fff;
     }
 
     .shot span {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 2.2rem 0.95rem 0.75rem;
-      background: linear-gradient(transparent, rgba(20, 16, 12, 0.72));
-      font-size: 0.95rem;
+      display: block;
+      padding-top: 0.35rem;
+      font-size: 0.92rem;
     }
 
     .shot:hover span,
     .shot:focus-visible span { text-decoration: underline; text-underline-offset: 0.18em; }
 
-    .shot:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+    .pager {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-top: 1rem;
+      color: var(--muted);
+    }
+
+    .pager button {
+      font: inherit;
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 0.2rem 0.75rem;
+      cursor: pointer;
+    }
+
+    .pager button:disabled {
+      color: #b7b1a6;
+      cursor: default;
+    }
 
     main {
       width: min(40rem, calc(100% - 2.5rem));
@@ -145,40 +162,36 @@
     #a-plus { scroll-margin-top: 1rem; }
 
     @media (max-width: 640px) {
-      .gallery {
-        height: auto;
-        grid-template-columns: 1fr;
-      }
-
-      .shot img { height: 78vw; }
-
-      .shot.lead img {
-        height: 100vh;
-        height: 100dvh;
-      }
-
       main { padding-top: 3rem; }
     }
   </style>
 </head>
 <body>
-  <section class="gallery" aria-label="亚马逊 A+ 合成图">
-    <a class="shot lead" href="#a-plus">
-      <img src="assets/a-plus/mantel.jpg" alt="壁炉台上的圣诞老人摆件，画面带英文标题">
-      <span>亚马逊 A+ 合成图</span>
-    </a>
-    <a class="shot" href="#a-plus">
-      <img src="assets/a-plus/tree.jpg" alt="圣诞树前木桌上的圣诞老人摆件">
-      <span>亚马逊 A+ 合成图</span>
-    </a>
-    <a class="shot" href="#a-plus">
-      <img src="assets/a-plus/garden.jpg" alt="花园回廊前的圣诞老人摆件">
-      <span>亚马逊 A+ 合成图</span>
-    </a>
-    <a class="shot" href="#a-plus">
-      <img src="assets/a-plus/dining.jpg" alt="餐厅长桌上的圣诞老人摆件">
-      <span>亚马逊 A+ 合成图</span>
-    </a>
+  <section class="gallery" aria-label="作品图片">
+    <div class="grid">
+      <!-- 每 4 张为一页。第 5 张起自动进入下一页。 -->
+      <a class="shot" href="#a-plus">
+        <img src="assets/a-plus/mantel.jpg" alt="壁炉台上的圣诞老人摆件，画面带英文标题">
+        <span>亚马逊 A+ 合成图</span>
+      </a>
+      <a class="shot" href="#a-plus">
+        <img src="assets/a-plus/tree.jpg" alt="圣诞树前木桌上的圣诞老人摆件">
+        <span>亚马逊 A+ 合成图</span>
+      </a>
+      <a class="shot" href="#a-plus">
+        <img src="assets/a-plus/garden.jpg" alt="花园回廊前的圣诞老人摆件">
+        <span>亚马逊 A+ 合成图</span>
+      </a>
+      <a class="shot" href="#a-plus">
+        <img src="assets/a-plus/dining.jpg" alt="餐厅长桌上的圣诞老人摆件">
+        <span>亚马逊 A+ 合成图</span>
+      </a>
+    </div>
+    <div class="pager">
+      <button type="button" id="gallery-prev">上一页</button>
+      <span id="gallery-status">1 / 1</span>
+      <button type="button" id="gallery-next">下一页</button>
+    </div>
   </section>
   <main>
     <header>
@@ -362,5 +375,39 @@
 
     <footer>ou1005465816.github.io</footer>
   </main>
+  <script>
+    (function () {
+      var shots = Array.prototype.slice.call(document.querySelectorAll(".gallery .shot"));
+      var size = 4;
+      var page = 0;
+      var pages = Math.max(1, Math.ceil(shots.length / size));
+      var status = document.getElementById("gallery-status");
+      var prev = document.getElementById("gallery-prev");
+      var next = document.getElementById("gallery-next");
+
+      function show() {
+        shots.forEach(function (shot, index) {
+          shot.hidden = index < page * size || index >= (page + 1) * size;
+        });
+        status.textContent = (page + 1) + " / " + pages;
+        prev.disabled = page === 0;
+        next.disabled = page >= pages - 1;
+      }
+
+      prev.addEventListener("click", function () {
+        if (page > 0) {
+          page -= 1;
+          show();
+        }
+      });
+      next.addEventListener("click", function () {
+        if (page < pages - 1) {
+          page += 1;
+          show();
+        }
+      });
+      show();
+    })();
+  </script>
 </body>
 </html>
