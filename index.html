@@ -202,7 +202,20 @@
     #project-body {
       width: min(36rem, calc(100% - 3rem));
       margin: 0 auto;
-      padding: 18vh 0 14vh;
+      padding: 4.5rem 0 14vh;
+    }
+
+    .project-photos {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .project-photos img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #fff;
     }
 
     #project-body article {
@@ -229,7 +242,7 @@
 
     @media (max-width: 640px) {
       main { padding-top: 3rem; }
-      #project-body { padding-top: 12vh; }
+      #project-body { padding-top: 4rem; }
     }
   </style>
 </head>
@@ -484,12 +497,18 @@
       document.querySelector(".gallery").addEventListener("click", function (event) {
         var shot = event.target.closest(".shot");
         if (!shot) return;
-        var source = document.getElementById(shot.getAttribute("data-project"));
+        var projectId = shot.getAttribute("data-project");
+        var source = document.getElementById(projectId);
         if (!source) return;
         var copy = source.cloneNode(true);
         copy.removeAttribute("id");
-        projectBody.replaceChildren(copy);
+        var photos = document.createElement("div");
+        photos.className = "project-photos";
+        var clicked = shot.querySelector("img");
+        if (clicked) photos.appendChild(clicked.cloneNode(true));
+        projectBody.replaceChildren(photos, copy);
         dialog.showModal();
+        dialog.scrollTop = 0;
       });
       document.getElementById("project-close").addEventListener("click", function () {
         dialog.close();
